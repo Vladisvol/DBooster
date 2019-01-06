@@ -1,0 +1,53 @@
+# File name: main.py
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+ScreenManagement:
+    transition: SlideTransition()
+    MainScreen:
+    AnotherScreen:
+    
+<MainScreen>:
+    name: 'main'
+
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            cols: 1
+            rows: 1
+            padding: (0, 350, 0, 0,)
+            Label:
+                text: 'Hello! Let\'s get started!'
+                color: (0, 0, 0, 1)
+                font_size: 40
+        GridLayout:
+            cols: 1
+            rows: 1
+            padding: (593, 38, 593, 228)
+            Button:
+                background_normal: 'img\\continue_normal.png'
+                background_down: 'img\\continue_down.png'
+                on_release: app.root.current = 'other'
+            
+<AnotherScreen>:
+    name: 'other'    
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'img\\background.png'
+    GridLayout:
+        cols: 1
+        rows: 1
+        padding: (1090, 520, 110, 120)
+        Button:
+            background_normal: 'img\\add_normal.png'
+            background_down: 'img\\add_down.png'
+            size_hint: (None, None)
+            size: (80, 80)
+            on_press: root.file()
+
+    GridLayout:
+        cols: 7
+        rows: 7
+        spacing: 32
+        padding: (354, 152, 510, 152)
