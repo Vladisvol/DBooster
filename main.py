@@ -171,9 +171,6 @@ class AnotherScreen(Screen):
         os.startfile('main.py')
         os.abort()
 
-class ASCopy(AnotherScreen):
-    pass
-
 class ScreenManagement(ScreenManager):
     pass
 
